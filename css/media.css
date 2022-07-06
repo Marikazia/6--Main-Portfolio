@@ -1,0 +1,12 @@
+@media (max-width: 28.75em) {
+  /* "Automagic" image grid using no media queries */
+  .projects-grid {
+    max-width: 1280px;
+  }
+}
+
+@media (max-width: 30.625em) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
