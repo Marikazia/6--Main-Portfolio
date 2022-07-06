@@ -1,0 +1,428 @@
+*, *:before, *:after
+	box-sizing: border-box
+$m-c-bg: #111111
+$nav-bg: #222a96
+$central-bl-bg-1: #fff8de
+$central-bl-bg-2: #656565
+$central-bl-bg-3: #313131
+$h1: #ff841f
+$h2: #ffcd33
+$text-col-1: #90ff18
+$text-col-2: #53da25
+$text-col-3: #25e9ff
+$text-col-4: #ff3697
+$text-col-5: #ffffff
+// $text-col-6: #000000
+// $text-col-7: #000000
+$text-col-8: #222222
+$text-col-9: #fff5c0
+$circle-col-1: #fff5c7
+$circle-col-2: #000
+$circle-col-3: #000
+$circle-col-4: #000
+$circle-col-5: #000
+$circle-col-6: #000
+$circle-col-7: #000
+
+body, html
+	margin: 0
+	padding: 0
+	height: 100%
+  // background-image: href="https://create.vista.com/uk/unlimited/stock-videos/191337528/stock-video-gold-particle-abstract-background-more/"
+
+body
+	font-family: Quattrocento Sans, sans-serif
+
+h1
+	margin: 0
+	text-align: center
+	font-size: 64px
+  // color: $text-col-2
+	color: $text-col-8
+
+h2, ul
+	margin: 0
+
+h2
+ color: $central-bl-bg-2
+
+.nav-menu-total
+	background: $m-c-bg
+	position: fixed
+	top: 0
+	width: 100%
+	height: 60px
+	box-shadow: 0px -5px 25px 1px $central-bl-bg-1, 0px 9px 10px -12px $central-bl-bg-1 inset
+  // background: $nav-bg
+	z-index: 51
+
+.nav-top-menu
+	background: $m-c-bg
+	position: fixed
+	z-index: 50
+	width: 60%
+	height: 60px
+	display: flex
+	list-style-type: none
+	padding: 12px 50px 0 50px
+  // left: 20%
+	margin-top: -30px
+	margin-right: 20%
+	margin-left: 20%
+	transform: translate(0, 50%)
+	justify-content: space-between
+	flex-flow: row nowrap
+	box-shadow: 0px 9px 10px -12px $central-bl-bg-1 inset
+
+.nav-li a:hover
+	font-weight: 600
+  // color: $text-col-9
+	text-shadow: 0px 0px 50px $text-col-9
+
+.nav-a
+	top: 5px
+	text-decoration: none
+	color: white
+  // justify-self: center
+	font-size: 32px
+	font-weight: 600
+  // text-shadow: 0px 0px 47px $text-col-9,  0px 0px 10px $text-col-9
+	text-shadow: 0px 0px 10px $text-col-9
+
+.main-container
+	height: 100%
+	background-color: $m-c-bg
+
+.central-block-light-card
+	margin: 0
+	width: 50%
+	height: 400px
+	border-radius: 30px
+	position: absolute
+	z-index: 10
+	top: 44%
+	left: 55%
+	transform: translate(-50%, -50%)
+	background-color: $central-bl-bg-2
+	opacity: 90%
+
+.central-block-dark-card
+	margin: 0
+	width: 50%
+	height: 400px
+	border-radius: 30px
+	position: absolute
+	z-index: 20
+	top: 58%
+	left: 45%
+	transform: translate(-50%, -50%)
+	background-color: $central-bl-bg-3
+	opacity: 90%
+
+.central-block
+	margin: 0
+	width: 50%
+	height: 450px
+	border-radius: 30px
+	position: absolute
+	z-index: 30
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	top: 50%
+	left: 50%
+	margin-right: -50%
+	transform: translate(-50%, -50%)
+	background-color: $central-bl-bg-1
+  // opacity: 90%
+  // box-shadow: 0px 0px 5px 10px $central-bl-bg-1
+
+.my-name
+	margin-top: 9%
+	font-weight: 700
+  // text-shadow: 0px 0px 10px $text-col-6
+
+.my-profession
+	margin-top: 4%
+	text-align: center
+	font-size: 48px
+	font-weight: 400
+	text-transform: uppercase
+
+.soc-links-main
+	list-style-type: none
+	margin-top: 4%
+	margin-bottom: 9%
+	padding: 0
+	width: 70%
+	// position: absolute
+  // top: 50%
+  // transform: translate(-50%, -50%) 
+	// left: 50%
+	// margin-right: -50%
+	// transform: translate(-50%)
+	display: flex
+	align-items: center
+	align-content: center
+	justify-content: space-between
+	flex-flow: row nowrap
+
+.soc-logo-main
+	margin: 0
+	padding: 0
+	&:hover
+		box-shadow: 0px 0px 50px $text-col-5
+
+.logo-main
+	width: 80px
+
+.logo-main li:hover
+	text-shadow: 0px 0px 50px $central-bl-bg-2
+
+footer
+	position: absolute
+	right: 2%
+	bottom: 2%
+	display: flex
+	flex-direction: column
+
+.footer-description
+
+	margin: 0
+	color: $central-bl-bg-2
+
+////////////// rings
+.all-rings
+	overflow: hidden
+
+.ring
+	display: inline-block
+	margin: 1em
+	width: 5em
+	height: 5em
+	border-radius: 50%
+	vertical-align: middle
+	overflow: hidden
+
+// .ring-1-1
+//   overflow: hidden
+//   position: absolute
+//   top: 70%
+//   left: 8%
+//   border: 1.5em solid $central-bl-bg-1
+//   margin: 1em
+//   width: 30em
+//   height: 30em
+//   box-shadow: 0px 0px 10px 5px $central-bl-bg-1 
+//   // box-shadow: 0px 0px 10px 5px $central-bl-bg-1 inset 
+
+.ring-1
+	overflow: hidden
+	position: absolute
+	z-index: 19
+  // top: 47%
+	bottom: 2%
+	left: 16%
+	border: 1.2em solid $circle-col-1
+	margin: 1em
+	width: 25em
+	height: 25em
+	opacity: 90%
+	box-shadow: 0px 0px 35px 5px $circle-col-1, 0px 0px 55px 5px $circle-col-1 inset
+
+.ring-2
+	overflow: hidden
+	position: absolute
+	z-index: 24
+	top: 10%
+	right: 8%
+	border: 1.2em solid $circle-col-1
+	margin: 1em
+	width: 22em
+	height: 22em
+	opacity: 890%
+	box-shadow: 0px 0px 20px 5px $circle-col-1, 0px 0px 35px 5px $central-bl-bg-1 inset
+
+.ring-3
+	overflow: hidden
+	position: absolute
+	z-index: 9
+	top: 1%
+	left: 53%
+	border: 1em solid $circle-col-1
+	margin: 1em
+	width: 15em
+	height: 15em
+	opacity: 90%
+	box-shadow: 0px 0px 15px 5px $circle-col-1, 0px 0px 25px 5px $central-bl-bg-1 inset
+
+.ring-4
+	overflow: hidden
+	position: absolute
+	z-index: 11
+	top: 12%
+	left: 35%
+	border: 0.5em solid $circle-col-1
+	margin: 1em
+	width: 4em
+	height: 4em
+	opacity: 90%
+	box-shadow: 0px 0px 10px 3px $circle-col-1, 0px 0px 12px 2px $central-bl-bg-1 inset
+
+.ring-5
+	display: none
+	overflow: hidden
+	position: absolute
+	z-index: 11
+	top: 10%
+	left: 32%
+	border: 0.6em solid $circle-col-1
+	margin: 1em
+	width: 5em
+	height: 5em
+	opacity: 90%
+	box-shadow: 0px 0px 12px 3px $circle-col-1, 0px 0px 15px 2px $central-bl-bg-1 inset
+
+.ring-6
+	overflow: hidden
+	position: absolute
+	z-index: 21
+	top: 9%
+	left: 14%
+	border: 0.6em solid $circle-col-1
+	margin: 1em
+	width: 8em
+	height: 8em
+	opacity: 90%
+	box-shadow: 0px 0px 12px 3px $circle-col-1, 0px 0px 15px 2px $central-bl-bg-1 inset
+
+.ring-7
+	overflow: hidden
+	position: absolute
+	z-index: 21
+	top: 25%
+	left: 9%
+	border: 0.5em solid $circle-col-1
+	margin: 1em
+	width: 5em
+	height: 5em
+	opacity: 90%
+	box-shadow: 0px 0px 12px 3px $circle-col-1, 0px 0px 15px 2px $central-bl-bg-1 inset
+
+.ring-8
+	overflow: hidden
+	position: absolute
+	z-index: 21
+	bottom: 17%
+	right: 2%
+	border: 0.8em solid $circle-col-1
+	margin: 1em
+	width: 12em
+	height: 12em
+	opacity: 90%
+	box-shadow: 0px 0px 15px 3px $circle-col-1, 0px 0px 25px 2px $central-bl-bg-1 inset
+
+.ring-9
+	overflow: hidden
+	position: absolute
+	z-index: 21
+	bottom: 3%
+	right: 29%
+	border: 0.7em solid $circle-col-1
+	margin: 1em
+	width: 8.5em
+	height: 8.5em
+	opacity: 90%
+	box-shadow: 0px 0px 12px 3px $circle-col-1, 0px 0px 15px 2px $central-bl-bg-1 inset
+
+.ring-10
+	overflow: hidden
+	position: absolute
+	z-index: 21
+	bottom: 11%
+	right: 18%
+	border: 0.6em solid $circle-col-1
+	margin: 1em
+	width: 5em
+	height: 5em
+	opacity: 90%
+	box-shadow: 0px 0px 12px 3px $circle-col-1, 0px 0px 15px 2px $central-bl-bg-1 inset
+
+.ring-11
+	overflow: hidden
+	position: absolute
+	z-index: 21
+	bottom: 20%
+	left: 7%
+	border: 1em solid $circle-col-1
+	margin: 1em
+	width: 18em
+	height: 18em
+	opacity: 90%
+	box-shadow: 0px 0px 15px 5px $circle-col-1, 0px 0px 25px 5px $central-bl-bg-1 inset
+
+//////////////////////////////////
+
+.projects-section
+	text-align: center
+	padding: 10rem 2rem
+  // background: $main-blue
+
+.projects-section-header
+	max-width: 640px
+	margin: 0 auto 6rem auto
+  // border-bottom: 0.2rem solid $main-white
+	font-size: 4rem
+
+.projects-grid
+	display: grid
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
+	grid-gap: 4rem
+	width: 100%
+	margin: 0 auto
+	margin-bottom: 6rem
+
+.projects-section
+	padding: 6rem 1rem
+
+.project
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)
+	border-radius: 2px
+
+.code
+	transition: color 0.3s ease-out
+
+.project:hover .code
+
+.project-image
+	height: calc(100% - 6.8rem)
+	width: 100%
+	object-fit: cover
+
+.project-title
+	font-size: 2rem
+	padding: 2rem 0.5rem
+
+.btn
+	display: inline-block
+	padding: 1rem 2rem
+	border-radius: 2px
+
+.btn-show-all
+	font-size: 2rem
+  // background: $main-gray
+	transition: background 0.3s ease-out
+
+.btn-show-all:hover
+  // background: $main-red
+
+.btn-show-all:hover > i
+	transform: translateX(2px)
+
+.btn-show-all > i
+	margin-left: 10px
+	transform: translateX(0)
+	transition: transform 0.3s ease-out
+
+// @import 'media.sass'
