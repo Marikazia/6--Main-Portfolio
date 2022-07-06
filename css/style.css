@@ -172,8 +172,10 @@ footer {
 }
 
 .footer-description {
+  font-size: 14px;
   margin: 0;
   color: #656565;
+  text-align: right;
 }
 
 .all-rings {
@@ -367,6 +369,9 @@ footer {
 
 .projects-section {
   padding: 6rem 1rem;
+  position: absolute;
+  left: 100%;
+  top: 0;
 }
 
 .project {
