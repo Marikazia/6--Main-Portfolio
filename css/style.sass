@@ -12,7 +12,7 @@ $text-col-2: #53da25
 $text-col-3: #25e9ff
 $text-col-4: #ff3697
 $text-col-5: #ffffff
-// $text-col-6: #000000
+$text-col-6: #656565
 // $text-col-7: #000000
 $text-col-8: #222222
 $text-col-9: #fff5c0
@@ -28,6 +28,7 @@ body, html
 	margin: 0
 	padding: 0
 	height: 100%
+	// overflow: hidden
   // background-image: href="https://create.vista.com/uk/unlimited/stock-videos/191337528/stock-video-gold-particle-abstract-background-more/"
 
 body
@@ -45,6 +46,17 @@ h2, ul
 
 h2
  color: $central-bl-bg-2
+
+.total-section
+	display: flex
+	flex-direction: row
+	background-color: $m-c-bg
+	height: 100%
+
+.main-container
+	height: 100%
+	background-color: $m-c-bg
+	// overflow: hidden
 
 .nav-menu-total
 	background: $m-c-bg
@@ -88,10 +100,6 @@ h2
 	font-weight: 600
   // text-shadow: 0px 0px 47px $text-col-9,  0px 0px 10px $text-col-9
 	text-shadow: 0px 0px 10px $text-col-9
-
-.main-container
-	height: 100%
-	background-color: $m-c-bg
 
 .central-block-light-card
 	margin: 0
@@ -365,30 +373,73 @@ footer
 
 //////////////////////////////////
 
+.right-container
+	position: relative
+	width: 101%
+	left: 99.5%
+	top: 0
+	overflow: hidden
+	background-color: $m-c-bg
+
+.right-side-top-row
+	position: absolute
+	z-index: 31
+	right: 2%
+	top: 8%
+	width: 100px
+	height: 100px
+	display: flex
+	align-items: center
+	justify-content: center
+
+.back-button
+	border: none
+	border-radius: 20px
+	width: 80px
+	height: 40px
+	&:hover
+
+		border-radius: 50%
+		width: 60px
+		height: 60px
+
+.about-me-description
+	position: absolute
+	top: 12%
+	left: 5%
+	color: $text-col-6
+	max-width: 35%
+	font-size: 20px
+	font-weight: 700
+
 .projects-section
+	position: absolute
+	width: 100%
 	text-align: center
-	padding: 10rem 2rem
+	top: 12%
+	// padding:
   // background: $main-blue
 
 .projects-section-header
-	max-width: 640px
-	margin: 0 auto 6rem auto
+	position: absolute
+	right: 19%
+	max-width: 540px
+	margin-bottom: 6rem
   // border-bottom: 0.2rem solid $main-white
-	font-size: 4rem
+	font-size: 3rem
+	text-align: right
 
 .projects-grid
 	display: grid
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
 	grid-gap: 4rem
 	width: 100%
-	margin: 0 auto
+	margin-top: 15%
 	margin-bottom: 6rem
+	padding: 0 3% 0 3%
 
 .projects-section
-	padding: 6rem 1rem
-	position: absolute
-	left: 100%
-	top: 0
+	padding:
 
 .project
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)
