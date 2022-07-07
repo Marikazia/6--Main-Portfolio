@@ -13,7 +13,7 @@ $text-col-3: #25e9ff
 $text-col-4: #ff3697
 $text-col-5: #ffffff
 $text-col-6: #656565
-// $text-col-7: #000000
+$text-col-7: #9f9f9f
 $text-col-8: #222222
 $text-col-9: #fff5c0
 $circle-col-1: #fff5c7
@@ -23,6 +23,7 @@ $circle-col-4: #000
 $circle-col-5: #000
 $circle-col-6: #000
 $circle-col-7: #000
+$button-back-1: rgba(255,245,199,1)
 
 body, html
 	margin: 0
@@ -72,15 +73,15 @@ h2
 	background: $m-c-bg
 	position: fixed
 	z-index: 50
-	width: 60%
+	width: 100%
 	height: 60px
 	display: flex
 	list-style-type: none
-	padding: 12px 50px 0 50px
+	padding: 12px 20% 0 20%
   // left: 20%
 	margin-top: -30px
-	margin-right: 20%
-	margin-left: 20%
+	// margin-right: 20%
+	// margin-left: 20%
 	transform: translate(0, 50%)
 	justify-content: space-between
 	flex-flow: row nowrap
@@ -113,6 +114,7 @@ h2
 	transform: translate(-50%, -50%)
 	background-color: $central-bl-bg-2
 	opacity: 90%
+	box-shadow: 5px -5px 20px 5px rgba(0,0,0,0.75)
 
 .central-block-dark-card
 	margin: 0
@@ -126,6 +128,7 @@ h2
 	transform: translate(-50%, -50%)
 	background-color: $central-bl-bg-3
 	opacity: 90%
+	box-shadow: -5px 5px 20px 5px rgba(0,0,0,0.75)
 
 .central-block
 	margin: 0
@@ -145,6 +148,7 @@ h2
 	background-color: $central-bl-bg-1
   // opacity: 90%
   // box-shadow: 0px 0px 5px 10px $central-bl-bg-1
+	box-shadow: 5px -5px 30px 1px rgba(0,0,0,0.75)
 
 .my-name
 	margin-top: 9%
@@ -164,12 +168,6 @@ h2
 	margin-bottom: 9%
 	padding: 0
 	width: 70%
-	// position: absolute
-  // top: 50%
-  // transform: translate(-50%, -50%) 
-	// left: 50%
-	// margin-right: -50%
-	// transform: translate(-50%)
 	display: flex
 	align-items: center
 	align-content: center
@@ -213,18 +211,6 @@ footer
 	border-radius: 50%
 	vertical-align: middle
 	overflow: hidden
-
-// .ring-1-1
-//   overflow: hidden
-//   position: absolute
-//   top: 70%
-//   left: 8%
-//   border: 1.5em solid $central-bl-bg-1
-//   margin: 1em
-//   width: 30em
-//   height: 30em
-//   box-shadow: 0px 0px 10px 5px $central-bl-bg-1 
-//   // box-shadow: 0px 0px 10px 5px $central-bl-bg-1 inset 
 
 .ring-1
 	overflow: hidden
@@ -385,35 +371,65 @@ footer
 	position: absolute
 	z-index: 31
 	right: 2%
-	top: 8%
-	width: 100px
-	height: 100px
+	top: 0
+	width: 60px
+	height: 60px
 	display: flex
 	align-items: center
 	justify-content: center
+	z-index: 100
 
 .back-button
 	border: none
 	border-radius: 20px
-	width: 80px
+	width: 100px
 	height: 40px
+	background: $button-back-1
+	font-weight: 700
+	font-family: Quattrocento Sans, sans-serif
+	font-size: 18px
+	color: $text-col-8
 	&:hover
-
+		cursor: pointer
 		border-radius: 50%
 		width: 60px
 		height: 60px
+		background: $m-c-bg
+		border: 1px solid
+		color: $button-back-1
+		box-shadow: 0px 0px 9px 2px
+		transition: 0.3s
+	&-a
+		text-decoration: none
+		color: $text-col-8
+		&:hover
+			color: $button-back-1
+
+.right-top-row
+	margin-top: 60px
+	display: flex
 
 .about-me-description
-	position: absolute
-	top: 12%
-	left: 5%
-	color: $text-col-6
-	max-width: 35%
+	// position: absolute
+	margin-top: 2%
+	margin-left: 5%
+	color: $text-col-7
+	max-width: 40%
 	font-size: 20px
 	font-weight: 700
+	display: flex
+	align-items: center
+	justify-content: center
+
+.my-photo
+	width: 120px
+	height: 120px
+	border-radius: 50%
+	margin-right: 30px
+	box-shadow: 0px 0px 10px 1px $circle-col-1, 0px 0px 10px 1px $central-bl-bg-1 inset
 
 .projects-section
-	position: absolute
+	// position: absolute
 	width: 100%
 	text-align: center
 	top: 12%
@@ -421,28 +437,34 @@ footer
   // background: $main-blue
 
 .projects-section-header
-	position: absolute
-	right: 19%
-	max-width: 540px
-	margin-bottom: 6rem
+	// position: absolute
+	margin-left: 5%
+	margin-right: 12%
+	padding-top: 2%
+	max-width: 45%
+	// margin-bottom: 6rem
   // border-bottom: 0.2rem solid $main-white
-	font-size: 3rem
+	font-size: 4rem
 	text-align: right
+	display: flex
+	align-items: center
+	justify-content: center
+	color: $text-col-9
 
 .projects-grid
 	display: grid
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
-	grid-gap: 4rem
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))
+	grid-gap: 2rem
 	width: 100%
-	margin-top: 15%
+	margin-top: 12%
 	margin-bottom: 6rem
 	padding: 0 3% 0 3%
 
 .projects-section
-	padding:
+	// padding:
 
 .project
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)
+	// box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)
 	border-radius: 2px
 
 .code
@@ -450,14 +472,45 @@ footer
 
 .project:hover .code
 
+.project-tile
+	padding: 5%
+
 .project-image
-	height: calc(100% - 6.8rem)
+	height: calc(100% - 7.8rem)
+	border-radius: 50%
+	border: 1px solid $circle-col-1
 	width: 100%
 	object-fit: cover
+	opacity: 0.5
+	box-shadow: 0px 0px 5px 1px $circle-col-1
+	&:hover
+		border-radius: 16px
+		opacity: 1
+		transform: scale(1.2)
+		transition: 0.3s
+		box-shadow: 0px 0px 10px 1px $circle-col-1
 
 .project-title
 	font-size: 2rem
-	padding: 2rem 0.5rem
+	padding: 0.5rem
+	border: none
+	color: $text-col-6
+	// border-radius: 20px
+	// width: 80px
+	// height: 40px
+	// background: $button-back-1
+	font-weight: 700
+	font-family: Quattrocento Sans, sans-serif
+	// font-size: 18px
+	// color: $text-col-8
+	&:hover
+		cursor: pointer
+		// border-radius: 50%
+		// width: 60px
+		// height: 60px
+		// background: $m-c-bg
+		// border: 1px solid
+		color: $button-back-1
 
 .btn
 	display: inline-block
@@ -479,5 +532,12 @@ footer
 	margin-left: 10px
 	transform: translateX(0)
 	transition: transform 0.3s ease-out
+
+.second-footer
+	position: absolute
+	right: 2%
+	bottom: 2%
+	display: flex
+	flex-direction: column
 
 // @import 'media.sass'
