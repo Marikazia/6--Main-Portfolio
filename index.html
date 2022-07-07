@@ -15,6 +15,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 		rel="stylesheet">
 
+	<link rel="icon" type="image/x-icon"
+		href="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-portfolio-job-search-flaticons-lineal-color-flat-icons-2.png">
 	<!-- <meta name="description" content="Showcase 3D Effects with CSS HTML Swiper"> -->
 	<!-- <meta name="viewport" > -->
 	<!-- <link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">  -->
@@ -24,14 +26,14 @@
 
 	<section class="total-section">
 
-		<main class="main-container">
+		<main id="main" class="main-container">
 			<header>
 				<div class="nav-menu-total">
 					<ul class="nav-top-menu">
-						<li class="nav-li nav-home"><a href="#" class="nav-a">Home</a></li>
-						<li class="nav-li nav-about"><a href="#" class="nav-a">About</a></li>
-						<li class="nav-li nav-portfolio"><a href="#" class="nav-a">Portfolio</a></li>
-						<li class="nav-li nav-contact"><a href="#" class="nav-a">Contacts</a></li>
+						<li class="nav-li nav-home"><a href="#main" class="nav-a">Home</a></li>
+						<li class="nav-li nav-about"><a href="#right-container" class="nav-a">About</a></li>
+						<li class="nav-li nav-portfolio"><a href="#right-container" class="nav-a">Portfolio</a></li>
+						<li class="nav-li nav-contact"><a href="#main" class="nav-a">Contacts</a></li>
 					</ul>
 				</div>
 			</header>
@@ -39,7 +41,7 @@
 
 			<div class="central-block-light-card"></div>
 			<div class="central-block-dark-card"></div>
-			<div class="central-block">
+			<div id="central-block" class="central-block">
 				<!-- class="my-name" -->
 				<h1 class="my-name">Mariana Machohan</h1>
 				<h2 class="my-profession">WEB Developer</h2>
@@ -97,23 +99,29 @@
 			</div>
 		</main>
 
-		<div class="right-container">
+		<div id="right-container" class="right-container">
 			<div class="right-side-top-row">
-				<button class="back-button">Back</button>
+				<button class="back-button"><a class="back-button-a" href="#main">Back</a></button>
 			</div>
 
 			<!-- START PROJECTS SECTION -->
-			<div class="about-me-description">
-				I started doing web development in 2021. I am delighted with this case. Writing code, lines of text that as a
-				result take on different looks and shapes is something incredible. I work and study step by step. I will present
-				my works here for you.
+			<div class="right-top-row">
+				<div id="about-me" class="about-me-description">
+					<img src="/img/photo_2022-07-03_18-04-49.jpg" class="my-photo" alt="my_photo">
+					&emsp; I started doing web development in 2021. I am delighted with this case. Writing code, lines of text
+					that
+					as a
+					result take on different looks and shapes is something incredible. I work and study step by step. I present
+					my works here for you.
+				</div>
+
+				<h2 class="projects-section-header">This is my projects:</h2>
 			</div>
+
 
 			<section id="projects" class="projects-section">
 
-				<h2 class="projects-section-header">These are some of my projects:</h2>
-
-				<div class="projects-grid">
+				<div id="projects" class="projects-grid">
 					<a href="https://codepen.io/marikazia/pen/yLvyqre" target="_blank" class="project project-tile">
 						<img class="project-image" src="https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg"
 							alt="project" />
@@ -125,7 +133,7 @@
 					</a>
 
 					<a href="#" target="_blank" class="project project-tile">
-						<img class="#" alt="project" />
+						<img class="project-image" src="#" alt="project" />
 						<p class="project-title">
 							<span class="code">&lt;</span>
 
@@ -143,7 +151,7 @@
 					</a>
 
 					<a href="#" target="_blank" class="project project-tile">
-						<img class="#" alt="project" />
+						<img class="project-image" src="#" alt="project" />
 						<p class="project-title">
 							<span class="code">&lt;</span>
 
@@ -208,16 +216,16 @@
 
 				<a href="#" class="btn btn-show-all" target="_blank">Show all<i class="fas fa-chevron-right"></i></a>
 
+
 			</section>
 
 			<!-- END PROJECTS SECTION -->
-
-
-
-
-			<div class="right-side-main">
-
+			<div class="second-footer">
+				<p class="footer-description">Created and designed by me in 2022</p>
+				<p class="footer-description">Last edit 2022</p>
 			</div>
+
+
 		</div>
 
 	</section>
