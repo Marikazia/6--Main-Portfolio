@@ -28,17 +28,16 @@ h2 {
 }
 
 .nav-menu-total {
-  background: #111111;
+  background: linear-gradient(180deg, #111111 0%, rgba(17, 17, 17, 0.5) 40%, transparent 80%);
   position: fixed;
   top: 0;
   width: 100%;
   height: 60px;
-  box-shadow: 0px -5px 25px 1px #fff8de, 0px 9px 10px -12px #fff8de inset;
   z-index: 51;
 }
 
 .nav-top-menu {
-  background: #111111;
+  background: transparent;
   position: fixed;
   z-index: 50;
   width: 60%;
@@ -52,27 +51,56 @@ h2 {
   transform: translate(0, 50%);
   justify-content: space-between;
   flex-flow: row nowrap;
-  box-shadow: 0px 9px 10px -12px #fff8de inset;
 }
 
-.nav-li a:hover {
+.nav-li {
   font-weight: 600;
-  text-shadow: 0px 0px 50px #fff5c0;
+  text-shadow: 0px 0px 50px #111111;
+  &:hover {
+    text-shadow: 0px 0px 100px #111111;
+  }
 }
 
 .nav-a {
   top: 5px;
   text-decoration: none;
-  color: white;
+  position: relative;
+  display: inline-block;
+  color: #fff8de;
   font-size: 32px;
   font-weight: 600;
-  text-shadow: 0px 0px 10px #fff5c0;
+  /* text-shadow: 0px 0px 5px #fff5c0; */
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 15px; /* 👈 Встановлюємо висоту підсвітки */
+    bottom: -15px;
+    left: 0;
+    /* background-color: #fff5c0; */
+    background: linear-gradient(180deg, 
+      rgba(255, 245, 192, 0.8) 0%,   /* Насичений жовтий колір (#fff5c0) з opacity 0.8 */
+      rgba(255, 245, 192, 0.4) 20%,  /* Плавне згасання кольору до 40% */
+      transparent 100%               /* Повна прозорість наприкінці */
+    );
+    transform: scaleX(0);
+    opacity: 0.5;
+    transform-origin: bottom center;
+    transition: transform 0.3s ease-out;
+  }
+  &:hover {
+    text-shadow: 0px 0px 10px rgba( 0, 0, 0);
+    &:after {
+      transform: scaleX(1.2);
+    }
+  }
 }
 
 .main-container {
   --card-offset-x: clamp(32px, 3.5vw, 48px);
   --card-offset-top: clamp(20px, 2.2vh, 24px);
   --card-offset-bottom: clamp(20px, 2.4vh, 26px);
+  position: relative;
   height: 100%;
   background-color: #111111;
 }
@@ -113,7 +141,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   top: 50%;
   left: 50%;
   margin-right: -50%;
@@ -122,28 +150,29 @@ h2 {
 }
 
 .my-name {
-  margin-top: 9%;
+  margin-top: 12%;
+  font-size: 54px;
   font-weight: 700;
 }
 
 .my-profession {
-  margin-top: 4%;
+  margin-top: 1%;
   text-align: center;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 400;
   text-transform: uppercase;
 }
 
 .soc-links-main {
   list-style-type: none;
-  margin-top: 4%;
-  margin-bottom: 9%;
-  padding: 0;
+  margin-top: auto;
+  margin-bottom: 7%;
+  padding: 0 7% 0 7%;
   width: 70%;
   display: flex;
   align-items: center;
   align-content: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-flow: row nowrap;
 }
 
@@ -175,6 +204,255 @@ footer {
 .footer-description {
   margin: 0;
   color: #656565;
+}
+
+.bokeh-layer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bokeh {
+  --bokeh-duration: 22s;
+  --bokeh-delay: 0s;
+  --bokeh-blur: 60px;
+  --bokeh-tx-a: 2.5%;
+  --bokeh-ty-a: -2%;
+  --bokeh-scale-a: 1.04;
+  --bokeh-tx-b: -3%;
+  --bokeh-ty-b: 2.2%;
+  --bokeh-scale-b: 0.96;
+  --bokeh-tx-c: 1.8%;
+  --bokeh-ty-c: 3%;
+  --bokeh-scale-c: 1.05;
+  --bokeh-tx-d: -2.2%;
+  --bokeh-ty-d: -2.8%;
+  --bokeh-scale-d: 0.95;
+  --bokeh-tx-e: 3%;
+  --bokeh-ty-e: 1.5%;
+  --bokeh-scale-e: 1.02;
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 245, 199, 1) 0%, rgba(255, 245, 199, 0.55) 35%, rgba(255, 245, 199, 0) 70%);
+  filter: blur(var(--bokeh-blur));
+  transform-origin: center center;
+  translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+  animation: bokeh-float var(--bokeh-duration) var(--bokeh-delay) ease-in-out infinite;
+  will-change: transform, translate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bokeh {
+    animation: none;
+  }
+}
+
+@keyframes bokeh-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  15% {
+    transform: translate(var(--bokeh-tx-a), var(--bokeh-ty-a)) scale(var(--bokeh-scale-a));
+  }
+  35% {
+    transform: translate(var(--bokeh-tx-b), var(--bokeh-ty-b)) scale(var(--bokeh-scale-b));
+  }
+  55% {
+    transform: translate(var(--bokeh-tx-c), var(--bokeh-ty-c)) scale(var(--bokeh-scale-c));
+  }
+  75% {
+    transform: translate(var(--bokeh-tx-d), var(--bokeh-ty-d)) scale(var(--bokeh-scale-d));
+  }
+  90% {
+    transform: translate(var(--bokeh-tx-e), var(--bokeh-ty-e)) scale(var(--bokeh-scale-e));
+  }
+}
+
+/* 18 orbs — even spread + pseudo-random z (depth only inside bokeh layer) */
+.bokeh-1 {
+  top: 6%;
+  left: 8%;
+  width: 34vmin;
+  height: 34vmin;
+  opacity: 0.28;
+  z-index: 5;
+  --bokeh-blur: 55px;
+  --bokeh-tx-a: 2%;
+  --bokeh-ty-a: -2.5%;
+}
+
+.bokeh-2 {
+  top: 10%;
+  left: 32%;
+  width: 26vmin;
+  height: 26vmin;
+  opacity: 0.35;
+  z-index: 2;
+  --bokeh-blur: 40px;
+}
+
+.bokeh-3 {
+  top: 4%;
+  left: 58%;
+  width: 40vmin;
+  height: 40vmin;
+  opacity: 0.22;
+  z-index: 7;
+  --bokeh-blur: 70px;
+}
+
+.bokeh-4 {
+  top: 12%;
+  left: 82%;
+  width: 30vmin;
+  height: 30vmin;
+  opacity: 0.3;
+  z-index: 4;
+  --bokeh-blur: 48px;
+}
+
+.bokeh-5 {
+  top: -14%;
+  left: -18%;
+  width: 38vmin;
+  height: 38vmin;
+  opacity: 0.18;
+  z-index: 8;
+  --bokeh-blur: 65px;
+}
+
+.bokeh-6 {
+  top: 28%;
+  left: 6%;
+  width: 32vmin;
+  height: 32vmin;
+  opacity: 0.4;
+  z-index: 3;
+  --bokeh-blur: 52px;
+}
+
+.bokeh-7 {
+  top: 32%;
+  left: 38%;
+  width: 24vmin;
+  height: 24vmin;
+  opacity: 0.25;
+  z-index: 6;
+  --bokeh-blur: 36px;
+}
+
+.bokeh-8 {
+  top: 26%;
+  left: 68%;
+  width: 36vmin;
+  height: 36vmin;
+  opacity: 0.32;
+  z-index: 1;
+  --bokeh-blur: 62px;
+}
+
+.bokeh-9 {
+  top: 34%;
+  left: 104%;
+  width: 28vmin;
+  height: 28vmin;
+  opacity: 0.15;
+  z-index: 5;
+  --bokeh-blur: 44px;
+}
+
+.bokeh-10 {
+  top: 48%;
+  left: 18%;
+  width: 42vmin;
+  height: 42vmin;
+  opacity: 0.2;
+  z-index: 7;
+  --bokeh-blur: 75px;
+}
+
+.bokeh-11 {
+  top: 52%;
+  left: 48%;
+  width: 30vmin;
+  height: 30vmin;
+  opacity: 0.38;
+  z-index: 2;
+  --bokeh-blur: 50px;
+}
+
+.bokeh-12 {
+  top: 46%;
+  left: 76%;
+  width: 34vmin;
+  height: 34vmin;
+  opacity: 0.26;
+  z-index: 4;
+  --bokeh-blur: 58px;
+}
+
+.bokeh-13 {
+  top: 62%;
+  left: -16%;
+  width: 28vmin;
+  height: 28vmin;
+  opacity: 0.33;
+  z-index: 6;
+  --bokeh-blur: 42px;
+}
+
+.bokeh-14 {
+  top: 68%;
+  left: 34%;
+  width: 44vmin;
+  height: 44vmin;
+  opacity: 0.12;
+  z-index: 8;
+  --bokeh-blur: 80px;
+}
+
+.bokeh-15 {
+  top: 64%;
+  left: 62%;
+  width: 26vmin;
+  height: 26vmin;
+  opacity: 0.36;
+  z-index: 3;
+  --bokeh-blur: 38px;
+}
+
+.bokeh-16 {
+  top: 72%;
+  left: 88%;
+  width: 32vmin;
+  height: 32vmin;
+  opacity: 0.24;
+  z-index: 5;
+  --bokeh-blur: 54px;
+}
+
+.bokeh-17 {
+  top: 94%;
+  left: 14%;
+  width: 36vmin;
+  height: 36vmin;
+  opacity: 0.19;
+  z-index: 1;
+  --bokeh-blur: 68px;
+}
+
+.bokeh-18 {
+  top: 102%;
+  left: 52%;
+  width: 48vmin;
+  height: 48vmin;
+  opacity: 0.14;
+  z-index: 7;
+  --bokeh-blur: 85px;
 }
 
 .all-rings {
@@ -297,8 +575,8 @@ html.rings-js .all-rings .ring:not(.ring-entering):not(.ring-is-floating) {
   overflow: hidden;
   position: absolute;
   z-index: 9;
-  top: 1%;
-  left: 53%;
+  top: 7%;
+  left: 57%;
   border: 1em solid #fff5c7;
   margin: 1em;
   width: 15em;
