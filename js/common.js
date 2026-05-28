@@ -80,6 +80,7 @@
     if (prefersReducedMotion()) return;
 
     const rings = [...document.querySelectorAll(".all-rings .ring")];
+    const bokehOrbs = [...document.querySelectorAll(".bokeh-layer .bokeh")];
     const cards = [
       ...document.querySelectorAll(
         ".central-block-light-card, .central-block-dark-card, .central-block"
@@ -87,6 +88,10 @@
     ];
 
     const items = [
+      ...bokehOrbs.map((el, index) => ({
+        el,
+        depth: 0.1 + (index % 6) * 0.03,
+      })),
       ...rings.map((el, index) => ({
         el,
         depth: 0.35 + (index % 6) * 0.11,
