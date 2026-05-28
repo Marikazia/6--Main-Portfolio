@@ -70,6 +70,9 @@ h2 {
 }
 
 .main-container {
+  --card-offset-x: clamp(32px, 3.5vw, 48px);
+  --card-offset-top: clamp(20px, 2.2vh, 24px);
+  --card-offset-bottom: clamp(20px, 2.4vh, 26px);
   height: 100%;
   background-color: #111111;
 }
@@ -81,9 +84,8 @@ h2 {
   border-radius: 30px;
   position: absolute;
   z-index: 10;
-  top: 44%;
-  left: 55%;
-  transform: translate(-50%, -50%);
+  top: calc(50% - 225px - var(--card-offset-top));
+  left: calc(25% + var(--card-offset-x));
   background-color: #656565;
   opacity: 90%;
 }
@@ -95,9 +97,8 @@ h2 {
   border-radius: 30px;
   position: absolute;
   z-index: 20;
-  top: 58%;
-  left: 45%;
-  transform: translate(-50%, -50%);
+  top: calc(50% + 225px + var(--card-offset-bottom) - 400px);
+  left: calc(25% - var(--card-offset-x));
   background-color: #313131;
   opacity: 90%;
 }
@@ -150,16 +151,16 @@ h2 {
   margin: 0;
   padding: 0;
 }
-
 .soc-logo-main:hover {
   box-shadow: 0px 0px 50px #ffffff;
 }
 
-.logo-main {
-  width: 80px;
+.logo-main-link {
+  width: 33px;
+  height: 33px;
 }
 
-.logo-main li:hover {
+.logo-main-link li:hover {
   text-shadow: 0px 0px 50px #656565;
 }
 
@@ -180,7 +181,28 @@ footer {
   overflow: hidden;
 }
 
+html.rings-js .all-rings .ring:not(.ring-entering):not(.ring-is-floating) {
+  opacity: 0;
+}
+
 .ring {
+  --ring-duration: 10s;
+  --ring-delay: 0s;
+  --ring-tx-a: 2%;
+  --ring-ty-a: -1.5%;
+  --ring-scale-a: 1.03;
+  --ring-tx-b: -2.5%;
+  --ring-ty-b: 2%;
+  --ring-scale-b: 0.97;
+  --ring-tx-c: 1%;
+  --ring-ty-c: 2.8%;
+  --ring-scale-c: 1.05;
+  --ring-tx-d: -1.2%;
+  --ring-ty-d: -2.2%;
+  --ring-scale-d: 0.96;
+  --ring-tx-e: 2.5%;
+  --ring-ty-e: 1%;
+  --ring-scale-e: 0.98;
   display: inline-block;
   margin: 1em;
   width: 5em;
@@ -188,8 +210,61 @@ footer {
   border-radius: 50%;
   vertical-align: middle;
   overflow: hidden;
+  transform-origin: center center;
+  translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+  will-change: transform, translate;
 }
 
+.central-block-light-card,
+.central-block-dark-card,
+.central-block {
+  translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+}
+
+.ring.ring-entering {
+  animation: ring-enter var(--ring-enter-duration, 1.2s) var(--ring-enter-delay, 0s) ease-out forwards;
+}
+
+.ring.ring-is-floating {
+  animation: ring-float var(--ring-duration) var(--ring-delay) ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring.ring-entering,
+  .ring.ring-is-floating {
+    animation: none;
+  }
+}
+@keyframes ring-enter {
+  from {
+    transform: translate(var(--ring-enter-x, 0px), var(--ring-enter-y, 0px)) scale(0.88);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
+}
+@keyframes ring-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  15% {
+    transform: translate(var(--ring-tx-a), var(--ring-ty-a)) scale(var(--ring-scale-a));
+  }
+  35% {
+    transform: translate(var(--ring-tx-b), var(--ring-ty-b)) scale(var(--ring-scale-b));
+  }
+  55% {
+    transform: translate(var(--ring-tx-c), var(--ring-ty-c)) scale(var(--ring-scale-c));
+  }
+  75% {
+    transform: translate(var(--ring-tx-d), var(--ring-ty-d)) scale(var(--ring-scale-d));
+  }
+  90% {
+    transform: translate(var(--ring-tx-e), var(--ring-ty-e)) scale(var(--ring-scale-e));
+  }
+}
 .ring-1 {
   overflow: hidden;
   position: absolute;
@@ -381,7 +456,8 @@ footer {
 .project-image {
   height: calc(100% - 6.8rem);
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .project-title {
@@ -408,4 +484,16 @@ footer {
   margin-left: 10px;
   transform: translateX(0);
   transition: transform 0.3s ease-out;
+}
+
+@media (max-width: 28.75em) {
+  /* "Automagic" image grid using no media queries */
+  .projects-grid {
+    max-width: 1280px;
+  }
+}
+@media (max-width: 30.625em) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
