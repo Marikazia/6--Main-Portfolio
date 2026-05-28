@@ -1,0 +1,12 @@
+{
+  "name": "main-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "serve . -l 8020",
+    "dev": "npm start"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
